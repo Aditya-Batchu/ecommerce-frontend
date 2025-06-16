@@ -70,10 +70,10 @@ export function renderOrderSummary(){
     </div>`;
   });
 
-  function deliveryOptionHTML(matchingProduct) {
+  function deliveryOptionHTML(matchingProduct, cartItem) {
     let html = "";
 
-    deliveryOptions.forEach((deliveryOption, cartItem) => {
+    deliveryOptions.forEach((deliveryOption) => {
       const today = dayjs();
       const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
       const dateString = deliveryDate.format("dddd, MMMM D");
