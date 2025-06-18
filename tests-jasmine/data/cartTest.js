@@ -1,7 +1,5 @@
 import {addToCart,cart, loadFromStorage} from '../../data/cart.js';
 
-
-
 describe('test suite: addToCart', ()=>{
   it('Adds an existing product',()=>{
     spyOn(localStorage, 'setItem');
