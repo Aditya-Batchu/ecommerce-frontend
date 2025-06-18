@@ -44,6 +44,8 @@ products.forEach((product)=>{
             </select>
           </div>
 
+          ${product.extrainfoHTML()}
+
           <div class="product-spacer"></div>
 
           <div class="added-to-cart">
@@ -88,3 +90,11 @@ document.querySelectorAll('.js-add-to-cart-button')
     })
 
 updateCartQuantity();
+
+
+
+
+// ${
+//   product instanceof Clothing?
+//     `<a href="${product.sizeChartLink}">size chart</a>`
+// }
