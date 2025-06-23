@@ -3,6 +3,17 @@ import {cart, addToCart} from '../data/cart.js';
 import {products,loadProducts} from '../data/products.js';
 import { formatCurrency } from './utils/money.js';
 
+// alert('Good Morning!');Ex-1a
+// alert('Aditya Batchu');Ex-1b
+// console.log(10+5);Ex-1c
+// console.log(20-5);Ex-1d
+// console.log(2+2-5);Ex-1e
+// document.body.innerHTML = 'Good Morning';Ex-1f
+// document.body.innerHTML = 'Aditya Batchu';Ex-1g
+// console.log(10+8+20);Ex-1h
+// console.log(100-20-50+200);Ex-1i
+// document.body.innerHTML = '';Ex-1j
+
 loadProducts(renderProductsGrid);
 
 function renderProductsGrid(){
