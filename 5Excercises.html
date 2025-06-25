@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="
+    console.log(quantity);
+  ">Show Quantity</button>
+  <button onclick="
+    quantity++;
+    console.log(quantity);
+  ">Add to cart</button>
+  <button onclick="
+    quantity--;
+    console.log(quantity);
+  ">Remove from Quantity</button>
+  <p></p>
+  <button onclick="
+    quantity+=4;
+    console.log(quantity);
+  ">+4</button>
+  <button onclick="
+    quantity+=5;
+    console.log(quantity);
+  ">+5</button>
+  <button onclick="
+    quantity-=2;
+    console.log(quantity);
+  ">-2</button>
+  <button onclick="
+    quantity-=3;
+    console.log(quantity);
+  ">-3</button>
+
+  <script>
+    let name = 'Aditya';
+    console.log('My name is ${name}');
+
+    let cost = 5+(2*3)+9;
+    console.log(`Total cost is ${cost}`);
+
+    let tax = cost*0.1;
+    console.log(`Tax (10%): $${tax}`);
+
+    let totalCost = cost+tax;
+    console.log(`Total Cost: $${totalCost}`);
+
+    let quantity = 0;
+
+  </script>
+</body>
+</html>
