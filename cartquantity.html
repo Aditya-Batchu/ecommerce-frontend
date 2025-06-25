@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+</head>
+<body>
+  <button onclick="
+    console.log(quantity);
+  ">Show Quantity</button>
+  <button class="increment" data-inc = "1">Add to cart</button>
+  <button class="decrement" data-dec = "1">Remove from Quantity</button>
+  <p></p>
+  <button class="increment" data-inc = "4">+4</button>
+  <button class="increment" data-inc = "5">+5</button>
+  <button class="decrement" data-dec = "2">-2</button>
+  <button class="decrement" data-dec = "3">-3</button>
+
+  <script>
+    let name = 'Aditya';
+    console.log('My name is ${name}');
+
+    let cost = 5+(2*3)+9;
+    console.log(`Total cost is ${cost}`);
+
+    let tax = cost*0.1;
+    console.log(`Tax (10%): $${tax}`);
+
+    let totalCost = cost+tax;
+    console.log(`Total Cost: $${totalCost}`);
+
+    let quantity = 0;
+    
+      document.querySelectorAll('.increment').forEach((element)=>{
+        element.addEventListener('click',()=>{
+          let increment = parseInt(element.dataset.inc)
+          if(quantity + increment  >10 ){
+            element.removeAttribute('onclick');
+            console.log('The cart is full');
+          }else{
+            quantity+=increment;
+            console.log(quantity);
+          }
+        })
+      })
+
+      document.querySelectorAll('.decrement').forEach((element)=>{
+        element.addEventListener('click',()=>{
+          let decrement = parseInt(element.dataset.dec)
+          if( quantity - decrement  <0 ){
+            element.removeAttribute('onclick');
+            console.log('Not Enough items in the cart');
+          }else{
+            quantity-=decrement;
+            console.log(quantity);
+          }
+        })
+      })
+
+  </script>
+</body>
+</html>
