@@ -19,7 +19,7 @@
 
   <script>
     let name = 'Aditya';
-    console.log('My name is ${name}');
+    console.log(`My name is ${name}`);
 
     let cost = 5+(2*3)+9;
     console.log(`Total cost is ${cost}`);
@@ -32,6 +32,7 @@
 
     let quantity = 0;
     
+    function updateCartQuantity(){
       document.querySelectorAll('.increment').forEach((element)=>{
         element.addEventListener('click',()=>{
           let increment = parseInt(element.dataset.inc)
@@ -57,6 +58,8 @@
           }
         })
       })
+    }
+    updateCartQuantity();
 
   </script>
 </body>
