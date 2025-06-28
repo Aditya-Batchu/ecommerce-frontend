@@ -42,8 +42,9 @@
       .addEventListener('click',()=>{
         calculations = '';
         console.log('cleared.')
+        updateCalculation();
       })
-    let calculations = '';
+    let calculations = localStorage.getItem('calculations') || '';
     document.querySelectorAll('button').forEach((element)=>{
       element.addEventListener('click',()=>{
         if(element.innerHTML === '='){
@@ -69,8 +70,13 @@
           calculations+=element.innerHTML;
           console.log(calculations);
         }
+        updateCalculation();
       })
     });
+
+    function updateCalculation(){
+      localStorage.setItem('calculations',calculations);
+    }
   </script>
 </body>
 </html>

@@ -6,13 +6,30 @@
   <title>Document</title>
 </head>
 <body>
+  <button onclick="playGame('heads')">heads</button>
+  <button onclick="playGame('tails')">tails</button>
   <script>
-    let result = '';
-    let randomNumber = Math.random();
-    result = randomNumber < 0.5 ?'heads':'tails';
-    let guess = 'heads';
-
-    console.log(guess === result ? 'You win!':'You lose.');
+    let score = JSON.parse(localStorage.getItem('score')) ||  {
+      wins:0,
+      loses:0
+    };
+    
+    function playGame(playerChoice){
+      let result = '';
+      let randomNumber = Math.random();
+      result = randomNumber < 0.5 ?'heads':'tails';
+      let guess = '';
+      guess = playerChoice;
+      if(guess === result){
+        score.wins++;
+      }else{
+        score.loses++;
+      }
+      console.log(guess === result ? ('You win!'):'You lose.');
+      console.log(score);
+      localStorage.setItem('score',JSON.stringify(score));
+    }
+    
 
   </script>
 </body>
