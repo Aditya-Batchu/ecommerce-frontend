@@ -4,38 +4,57 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body{
+      background-color: black;
+    }
+    button{
+      border-radius: 50%;
+      padding: 25px;
+      font-weight: bold;
+      font-size: large;
+      color: white;
+      background-color: rgb(129, 129, 129);
+    }
+    .operator{
+      background-color: rgb(253, 168, 10);
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <p>
     Calculator
   </p>
+  <p class="calculation-result"></p>
   <p>
     <button>1</button>
     <button>2</button>
     <button>3</button>
-    <button>+</button>
+    <button class="operator">+</button>
   </p>
   <p>
     <button>4</button>
     <button>5</button>
     <button>6</button>
-    <button>-</button>
+    <button class="operator">-</button>
   </p>
   <p>
     <button>7</button>
     <button>8</button>
     <button>9</button>
-    <button>*</button>
+    <button class="operator">*</button>
   </p>
   <p>
     <button>0</button>
     <button>.</button>
     <button>=</button>
-    <button>/</button>
+    <button class="operator">/</button>
   </p>
   <p>
     <button class="clear-button">clear</button>
   </p>
+  
   
   <script>
     document.querySelector('.clear-button')
@@ -49,27 +68,25 @@
       element.addEventListener('click',()=>{
         if(element.innerHTML === '='){
           calculations = eval(calculations);
-          console.log(calculations);
         }
         else if(element.innerHTML === '+'){
           calculations+=' + ';
-          console.log(calculations);
         }
         else if(element.innerHTML === '-'){
           calculations+=' - ';
-          console.log(calculations);
         }
         else if(element.innerHTML === '*'){
           calculations+=' * ';
-          console.log(calculations);
         }
         else if(element.innerHTML === '/'){
           calculations+=' / ';
-          console.log(calculations);
         }else if(element.innerHTML !== 'clear'){
           calculations+=element.innerHTML;
-          console.log(calculations);
         }
+        console.log(calculations);
+        document.querySelector('.calculation-result').innerHTML = calculations;
+        document.querySelector('.calculation-result').style.cssText = 'font-size:50px';
+        document.querySelector('.calculation-result').style.color = 'white';
         updateCalculation();
       })
     });

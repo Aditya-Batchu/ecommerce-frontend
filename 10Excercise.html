@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button{
+      border:none;
+      padding: 10px 30px;
+      font-size: large;
+      border-radius: 20px;
+    }
+    .add-to-cart{
+      background-color: rgb(255,216,20);
+      border-radius: 20px;
+    }
+    .request-button{
+      background-color: rgb(0, 0, 0);
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+    .schedule-for-later-button{
+      font-weight: bold;
+      border-radius: 10px;
+    }
+    .gaming-button,
+    .music-button,
+    .tech-button{
+      color: black;
+      background-color: rgb(212, 212, 212);
+    }
+    .is-toggled{
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button class="add-to-cart">
+    Add to cart
+  </button>
+  <p></p>
+  <button class="request-button">Request now</button>
+  <button class="schedule-for-later-button">Schedule for later</button><p></p>
+  <button class="js-button">Test</button><p></p>
+  <button class="gaming-button">Gaming</button>
+  <button class="music-button">Music</button>
+  <button class="tech-button">Tech</button>
+  <script>
+    console.log(document.querySelector('.js-button').classList.contains('js-button'));
+    
+    function changeDisplay(element){
+      element.addEventListener('click',()=>{
+        if(element.classList.contains('is-toggled')){
+          element.classList.remove('is-toggled');
+        }else{
+          element.classList.add('is-toggled');
+        }
+    });
+    }
+    /*let musicDisplay = document.querySelector('.music-button');
+    changeDisplay(musicDisplay);
+    let techDisplay = document.querySelector('.tech-button');
+    changeDisplay(techDisplay);
+    let gamingDisplay = document.querySelector('.gaming-button');
+    changeDisplay(gamingDisplay);*/
+
+    let elements = [document.querySelector('.gaming-button'),document.querySelector('.tech-button'),document.querySelector('.music-button')];
+    elements.forEach((element)=>{
+      element.addEventListener('click',()=>{
+        if(element.classList.contains('is-toggled')){
+          element.classList.remove('is-toggled');
+        }else{
+          element.classList.add('is-toggled');
+          elements.forEach((element2)=>{
+            if(element!==element2){
+              element2.classList.remove('is-toggled');
+            }
+          })
+        }
+      })
+    })
+  </script>
+</body>
+</html>

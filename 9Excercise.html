@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excersie 9</title>
+</head>
+<body>
+  <button class="button-a">9a</button>
+  <p></p>
+  <button class="button-b">9b</button>
+  <p></p>
+
+  <button onclick="updateChoice('heads')">Heads</button>
+  <button onclick="updateChoice('tails')">Tails</button>
+  <p>You Choose: <span class="user-choice">heads</span></p>
+
+  <input type="text" id="user-name-input">
+  <label for="user-name"><button type="submit" class="submit-button">Submit</button></label>
+  <p>Your name is: <span class="user-name-display"></span></p>
+
+  <input type='text' class="amount cost-input" placeholder="cost of order" onkeydown="
+    handleKeys(event);
+  ">
+  <button onclick="
+      calculateCost();
+  " class="calculate-button">Calculate</button>
+  <p class="js-total-cost"></p>
+
+  <input type="text" placeholder="type something" class="user-text" onkeyup="handleevent(event)">
+  <p class="user-text-display"></p>
+
+  <button onclick="
+      // Display the cart quantity on the page
+      // instead of in the console.
+      displayCartQuantity();
+    ">Show Quantity</button>
+
+    <button onclick="
+      updateCartQuantity(1);
+    ">Add to Cart</button>
+
+    <button onclick="
+      updateCartQuantity(2);
+    ">+2</button>
+
+    <button onclick="
+      updateCartQuantity(3);
+    ">+3</button>
+
+    <button onclick="
+      updateCartQuantity(4);
+    ">+4</button>
+
+    <button onclick="
+      updateCartQuantity(5);
+    ">+5</button>
+
+    <button onclick="
+      updateCartQuantity(-1);
+    ">Remove from cart</button>
+
+    <button onclick="
+      updateCartQuantity(-2);
+    ">-2</button>
+
+    <button onclick="
+      updateCartQuantity(-3);
+    ">-3</button>
+
+    <button onclick="
+      cartQuantity = 0;
+      console.log('Cart was reset.');
+
+      // Display the cart quantity after updating.
+      displayCartQuantity();
+    ">Reset Cart</button>
+
+    <!-- Create an element to display the cart quantity. -->
+    <p class="js-cart-quantity"></p>
+
+  <script>
+    console.log(document.querySelector('.button-a'));
+    document.querySelector('.button-b').innerHTML = '9b done!';
+
+    function updateChoice(choice){
+      document.querySelector('.user-choice').innerHTML = choice;
+    }
+    document.querySelector('.submit-button').addEventListener('click',()=>{
+      document.querySelector('.user-name-display').innerHTML = document.querySelector('#user-name-input').value;
+    })
+    document.querySelector('#user-name-input').addEventListener('keydown',()=>{
+      document.querySelector('.user-name-display').innerHTML = document.querySelector('#user-name-input').value;
+    })
+
+    function handleKeys(event){
+      if(event.key === 'Enter'){
+        calculateCost();
+      }
+    }
+
+    function calculateCost(){
+      const cost = document.querySelector('.amount');
+
+      if(Number(cost.value)<0){
+        document.querySelector('.js-total-cost').innerHTML = `Error: cost cannot be less than $0`;
+        document.querySelector('.js-total-cost').style.color = 'red';
+        return;
+      }
+
+      let finalCost = Number(cost.value)*100;
+
+      if(finalCost<4000){
+       finalCost+=1000;
+      }
+      document.querySelector('.js-total-cost').innerHTML = `$${finalCost/100}`;
+      document.querySelector('.js-total-cost').style.color = 'black';
+    };
+
+    function handleevent(event){
+      document.querySelector('.user-text-display').innerHTML = document.querySelector('.user-text').value;
+    }
+
+    let cartQuantity = 0;
+
+    // Display the cart quantity when the page loads.
+    displayCartQuantity();
+
+    function updateCartQuantity(change) {
+      if (cartQuantity + change > 10) {
+        alert('The cart is full');
+        return;
+      }
+
+      if (cartQuantity + change < 0) {
+        alert('Not enough items in the cart');
+        return;
+      }
+
+      cartQuantity += change;
+
+      // Display the cart quantity after updating.
+      displayCartQuantity();
+    }
+
+    function displayCartQuantity() {
+      document.querySelector('.js-cart-quantity')
+        .innerHTML = `Cart quantity: ${cartQuantity}`;
+    }
+  </script>
+</body>
+</html>
