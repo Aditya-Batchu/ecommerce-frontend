@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [10,20,30];
+    arr[arr.length-1] = 99;
+    console.log(arr);
+
+    function getLastValue(array){
+      return array[array.length-1];
+    }
+
+    function arraySwap(array){
+      let num = array[0];
+      array[0] = array[array.length-1];
+      array[array.length-1] = num;
+    }
+
+    let arr1 = [1,10,22,5,99];
+    console.log(getLastValue(arr1));
+
+    let arr2 = ['hi','hello','good'];
+    console.log(getLastValue(arr2));
+
+    arraySwap(arr1);
+    console.log(arr1)
+    arraySwap(arr2);
+    console.log(arr2);
+
+    /*for(let i=0;i<=10;i+=2){
+      console.log(i);
+    }*/
+
+    /*for(let i=5;i>=0;i--){
+      console.log(i);
+    }*/
+
+    newArray = arr1.map((n)=> n+1);
+    console.log(newArray);
+
+    function addNum(array,num){
+      let arr = array.map(n=>n+num);
+      return arr;
+    }
+    console.log(addNum(arr1,10));
+
+    function addArrays(array1,array2){
+      let addedArray = [];
+      for(let i=0;i<array1.length;i++){
+        addedArray[i] = array1[i]+array2[i];
+      }
+      return addedArray;
+    }
+
+    console.log(addArrays([10,20,30],[100,200,300]));
+
+    function countPositive(array){
+      let positiveArray = array.filter(n=>n>0);
+
+      return (positiveArray.length);
+    }
+
+    console.log(countPositive([1,-2,2]));
+    console.log(countPositive([-2,1,-4,5,19]));
+
+    function minMax(array){
+      let minMaxArray = {
+        max: array.reduce((acc,cur)=>cur>acc?cur:acc,null),
+        min:array.reduce((acc,cur)=>cur<acc? cur:acc,array[0])
+      }
+      return minMaxArray;
+    }
+
+    console.log(minMax([3]));
+
+    const fruits = ['apple','banana','apple','mango','apple','banana'];
+    function countWords(array){
+      let fruitCount = array.reduce((acc,word)=>{
+        acc[word] = (acc[word] || 0)+1;
+        return acc;
+      },{});
+
+      return fruitCount;
+    };
+
+    console.log(countWords(fruits));
+
+    let words = ['hello','hii','bye','good','good'];
+    let index = words.findIndex((value)=>value=='good');
+    console.log(index);
+
+    let eat = ['egg','apple','banana','coconut'];
+    let eatable = eat.filter((value)=>value!='egg');
+    console.log(eatable);
+
+    for(let i=1;i<=20;i++){
+      if(i%3==0 && i%5==0){
+        console.log('FizzBuzz');
+      }else if(i%5==0){
+        console.log('Buzz')
+      }else if(i%3==0){
+        console.log('Fizz')
+      }else{
+        console.log(i);
+      }
+    }
+
+    
+  </script>
+</body>
+</html>

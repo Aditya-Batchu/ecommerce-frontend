@@ -6,18 +6,21 @@
   <title>Document</title>
   <style>
     body{
-      background-color: black;
+      font-family: Arial;
+      background-color: rgb(0, 0, 0);
     }
     button{
       border-radius: 50%;
       padding: 25px;
       font-weight: bold;
-      font-size: large;
+      font-size: 26px;
       color: white;
-      background-color: rgb(129, 129, 129);
+      background-color: rgb(51, 51, 51);
+      cursor: pointer;
+      bottom: none;
     }
     .operator{
-      background-color: rgb(253, 168, 10);
+      background-color: rgb(254, 160, 10);
       color: white;
     }
   </style>
@@ -83,6 +86,7 @@
         }else if(element.innerHTML !== 'clear'){
           calculations+=element.innerHTML;
         }
+
         console.log(calculations);
         document.querySelector('.calculation-result').innerHTML = calculations;
         document.querySelector('.calculation-result').style.cssText = 'font-size:50px';

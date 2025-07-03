@@ -1,0 +1,48 @@
+body{
+  font-family: Arial;
+}
+
+.todo-input3{
+  padding: 10px;
+  font-size: large;
+  margin-right: 10px;
+}
+
+.date-input{
+  padding: 13px;
+  margin-right: 10px;
+}
+
+.js-todo3{
+  color: white;
+  background-color: green;
+  padding: 15px 60px;
+  border: none;
+  font-weight: bold;
+}
+
+.todo-grid{
+  display: grid;
+  grid-template-columns: 250px 155px 140px;
+}
+
+
+.todo-grid button{
+  background-color: red;
+  color: white;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 15px 40px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.todo-grid div{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: large;
+  margin-right: 10px;
+}
